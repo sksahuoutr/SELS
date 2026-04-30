@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Professional profile of Prof. Sushanta Kumar Sahu, Assistant Professor at OUTR, Bhubaneswar." />
+  <title>Prof. Sushanta Kumar Sahu | OUTR</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #eff4f8;
+      --text: #122638;
+      --muted: #516a7c;
+      --line: #d2dde6;
+      --primary: #0f4f72;
+      --primary-2: #2e87ac;
+      --card: #ffffff;
+      --soft: #e7f0f7;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Source Sans 3", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 8% 10%, #dce8f1 0%, transparent 34%),
+        radial-gradient(circle at 88% 4%, #d7e6ed 0%, transparent 36%),
+        var(--bg);
+      line-height: 1.6;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(8px);
+      background: rgba(239, 244, 248, 0.9);
+    }
+
+    .nav {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0.9rem 1.1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-family: "Libre Baskerville", serif;
+      font-size: 1.03rem;
+      color: #0f3044;
+    }
+
+    .brand img {
+      width: 38px;
+      height: 38px;
+      object-fit: contain;
+      background: #fff;
+      border: 1px solid #d3dce5;
+      border-radius: 8px;
+      padding: 3px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 600;
+      font-size: 0.94rem;
+      padding: 0.2rem 0.1rem;
+    }
+
+    .nav-links a:hover { color: var(--primary); }
+
+    .wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 1.4rem 1.1rem 2.5rem;
+    }
+
+    .hero {
+      background: linear-gradient(132deg, #102e43 0%, #0f4f72 56%, #2e87ac 100%);
+      border-radius: 20px;
+      padding: 1.7rem;
+      color: #f6fbff;
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 1.5rem;
+      align-items: center;
+      box-shadow: 0 18px 36px rgba(9, 27, 40, 0.24);
+      animation: slide-in 0.75s ease-out both;
+    }
+
+    .hero-photo {
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.26);
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-family: "Libre Baskerville", serif;
+      font-size: clamp(1.8rem, 3.4vw, 2.5rem);
+      line-height: 1.25;
+    }
+
+    .hero p {
+      margin: 0.55rem 0 0;
+      color: #d8eaf6;
+      max-width: 760px;
+      font-size: 1.04rem;
+    }
+
+    .meta {
+      margin-top: 0.95rem;
+      display: flex;
+      gap: 0.55rem;
+      flex-wrap: wrap;
+    }
+
+    .pill {
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 999px;
+      padding: 0.3rem 0.7rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    section { margin-top: 1.25rem; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1rem;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 1.15rem;
+      box-shadow: 0 5px 14px rgba(18, 38, 56, 0.06);
+      animation: fade-up 0.65s ease-out both;
+    }
+
+    .card h2 {
+      margin: 0 0 0.6rem;
+      font-family: "Libre Baskerville", serif;
+      font-size: 1.18rem;
+      color: #113047;
+    }
+
+    .about { grid-column: span 7; }
+    .contact { grid-column: span 5; }
+    .highlights { grid-column: span 4; }
+    .research { grid-column: span 8; }
+    .publications { grid-column: span 7; }
+    .service { grid-column: span 5; }
+    .scholar { grid-column: span 12; }
+    .employers { grid-column: span 12; }
+    .education { grid-column: span 12; }
+    .site-extra { grid-column: span 12; }
+
+    ul { margin: 0; padding-left: 1.08rem; }
+    li { margin: 0.3rem 0; }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.52rem;
+    }
+
+    .tag {
+      background: var(--soft);
+      border: 1px solid #c7d8e5;
+      color: #1d4a65;
+      border-radius: 999px;
+      padding: 0.26rem 0.64rem;
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+    }
+
+    .chip {
+      background: #f4f8fc;
+      border: 1px solid #cfdbe6;
+      border-radius: 999px;
+      padding: 0.3rem 0.7rem;
+      font-size: 0.86rem;
+      color: #1d4a65;
+      font-weight: 700;
+    }
+
+    .edu-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(110px, 1fr));
+      gap: 0.6rem;
+    }
+
+    .edu-item {
+      border: 1px solid #d7e2eb;
+      border-radius: 10px;
+      background: #f8fbfe;
+      padding: 0.6rem;
+      text-align: center;
+    }
+
+    .edu-item strong {
+      display: block;
+      color: #16415d;
+    }
+
+    .link-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.4rem;
+    }
+
+    .link-list a {
+      text-decoration: none;
+      background: #eef5fb;
+      border: 1px solid #cddce8;
+      border-radius: 999px;
+      padding: 0.28rem 0.68rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #1f4f6a;
+    }
+
+    a { color: var(--primary); }
+
+    .scholar-head p {
+      margin: 0.2rem 0;
+      color: var(--muted);
+    }
+
+    .scholar-link {
+      display: inline-block;
+      margin-top: 0.55rem;
+      text-decoration: none;
+      background: var(--soft);
+      border: 1px solid #c7d8e5;
+      color: #1d4a65;
+      font-weight: 700;
+      border-radius: 999px;
+      padding: 0.3rem 0.75rem;
+    }
+
+    .table-wrap {
+      margin-top: 0.9rem;
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 760px;
+      background: #fff;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 0.62rem 0.7rem;
+      border-bottom: 1px solid #e0e8ef;
+      font-size: 0.93rem;
+      vertical-align: top;
+    }
+
+    th {
+      background: #f0f6fb;
+      color: #153a54;
+      font-weight: 700;
+      position: sticky;
+      top: 0;
+    }
+
+    footer {
+      margin-top: 1.6rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      padding: 0.8rem;
+    }
+
+    @keyframes slide-in {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero-photo { margin: 0 auto; }
+      .meta { justify-content: center; }
+
+      .about, .contact, .highlights, .research, .publications, .service {
+        grid-column: span 12;
+      }
+
+      .edu-grid {
+        grid-template-columns: repeat(2, minmax(120px, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav">
+      <div class="brand">
+        <img src="images/outr-logo.png" alt="OUTR Logo" width="38" height="38" loading="eager" decoding="async" />
+        <span>Prof. Sushanta Kumar Sahu</span>
+      </div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="hero" id="about">
+      <img class="hero-photo" src="images/sks.jpg" alt="Portrait of Prof. Sushanta Kumar Sahu" width="170" height="170" loading="eager" decoding="async" />
+      <div>
+        <h1>Prof. Sushanta Kumar Sahu</h1>
+        <p>Assistant Professor, School of Electronic Sciences </p>
+        <p>Odisha University of Technology and Research </p>
+  </footer>
+        <div class="meta">
+          <span class="pill">Machine Intelligence</span>
+          <span class="pill">Computer Vision</span>
+          <span class="pill">Biomedical Signal Analysis</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="card about">
+        <h2>Professional Summary</h2>
+        <p>Prof. Sahu is dedicated to electronics and communication, with a strong focus on teaching, research, and academic mentorship. He follows a holistic approach that combines theoretical learning with practical engineering applications to build well-rounded professionals.</p>
+        <p>At OUTR, he works closely with students and faculty to foster innovation and research culture. His primary interests include Machine Learning, Deep Learning, Computer Vision, and Biomedical Signal Analysis for solving real-world problems.</p>
+      </article>
+
+      <article class="card contact" id="contact">
+        <h2>Contact</h2>
+        <ul>
+          <li>Email: <a href="mailto:sksahu@outr.ac.in">sksahu@outr.ac.in</a></li>
+          <li>Alternate Email: <a href="mailto:sahu.sushanta@gmail.com">sahu.sushanta@gmail.com</a></li>
+          <li>Office: School of Electronic Sciences, OUTR</li>
+          <li>Location: Bhubaneswar, Odisha - 751029</li>
+          <li>ORCID: <a href="https://orcid.org/0000-0002-4384-8939" target="_blank" rel="noopener noreferrer">0000-0002-4384-8939</a></li>
+        </ul>
+      </article>
+
+      <article class="card highlights">
+        <h2>Highlights</h2>
+        <ul>
+          <li>Academic mentorship and curriculum development</li>
+          <li>Publications across journals and conferences</li>
+          <li>Research collaboration and peer reviewing</li>
+          <li>Applied AI for engineering and healthcare</li>
+        </ul>
+      </article>
+
+      <article class="card research" id="research">
+        <h2>Research Interests</h2>
+        <div class="tags">
+          <span class="tag">Machine Learning</span>
+          <span class="tag">Deep Learning</span>
+          <span class="tag">Pattern Recognition</span>
+          <span class="tag">Computer Vision</span>
+          <span class="tag">Signal Processing</span>
+          <span class="tag">Biomedical Imaging</span>
+        </div>
+      </article>
+
+      <article class="card publications" id="publications">
+        <h2>Selected Publications</h2>
+        <ul>
+          <li>Sahu, S.K., et al. Deep CNN methods for healthcare diagnostics.</li>
+          <li>Sahu, S.K., et al. Medical imaging enhancement using GAN models.</li>
+          <li>Sahu, S.K., et al. Attention-based learning for biomedical signals.</li>
+          <li>Sahu, S.K., et al. Intelligent systems for clinical decision support.</li>
+        </ul>
+      </article>
+
+      <article class="card service">
+        <h2>Academic Service</h2>
+        <ul>
+          <li>Teaching core courses in AI and signal analysis</li>
+          <li>Supporting student projects and innovation labs</li>
+          <li>Participating in FDPs, workshops, and invited sessions</li>
+          <li>Editorial and peer-review contributions</li>
+        </ul>
+      </article>
+
+      <article class="card employers">
+        <h2>Prior Employer (Google Site)</h2>
+        <div class="chips">
+          <span class="chip">JSET, Jeypore</span>
+          <span class="chip">PKACE, Bargarh</span>
+          <span class="chip">SUIIT, Sambalpur</span>
+          <span class="chip">TITE, Bhubaneswar</span>
+          <span class="chip">Chandigarh</span>
+          <span class="chip">GHITM, Puri</span>
+        </div>
+      </article>
+
+      <article class="card education">
+        <h2>Education Qualification</h2>
+        <div class="edu-grid">
+          <div class="edu-item"><strong>PhD</strong><span>2025</span></div>
+          <div class="edu-item"><strong>M.Tech</strong><span>2011</span></div>
+          <div class="edu-item"><strong>B.Tech</strong><span>2008</span></div>
+          <div class="edu-item"><strong>Diploma</strong><span>2004</span></div>
+          <div class="edu-item"><strong>12th</strong><span>2000</span></div>
+          <div class="edu-item"><strong>10th</strong><span>1998</span></div>
+        </div>
+      </article>
+
+      <article class="card site-extra">
+        <h2>Additional Information from Google Site</h2>
+        <p><strong>Courses Taught:</strong> UG and PG teaching is listed, with learning resources for Pattern Recognition and Machine Learning, Information Theory, DSP, and Deep Learning.</p>
+        <p><strong>Research Page:</strong> The site includes dedicated links for Research Scholars, Publications, and Dissertations.</p>
+        <p><strong>Contact Page Note:</strong> Advises checking calendar availability and meeting during office leisure time, or using form-based contact.</p>
+
+        <div class="link-list">
+          <a href="https://sites.google.com/outr.ac.in/sksahu/courses-taught" target="_blank" rel="noopener noreferrer">Courses Taught</a>
+          <a href="https://sites.google.com/outr.ac.in/sksahu/courses-taught/information-theory" target="_blank" rel="noopener noreferrer">Information Theory</a>
+          <a href="https://sites.google.com/outr.ac.in/sksahu/research" target="_blank" rel="noopener noreferrer">Research</a>
+          <a href="https://sites.google.com/outr.ac.in/sksahu/contact-me" target="_blank" rel="noopener noreferrer">Contact Me</a>
+          <a href="https://sites.google.com/outr.ac.in/sksahu" target="_blank" rel="noopener noreferrer">Main Google Site</a>
+        </div>
+        <p style="margin-top:0.7rem;color:var(--muted);font-size:0.87rem;">Google Site details fetched and integrated on April 30, 2026.</p>
+      </article>
+
+      <article class="card scholar">
+        <h2>Research Paper Data</h2>
+        <div class="scholar-head">
+          <p><strong>Name:</strong> Sushanta Kumar Sahu</p>
+          <p><strong>Interests:</strong> Signal Processing, Machine Learning, Deep Learning, Computer Vision, Biomedical Signal Analysis</p>
+          <a class="scholar-link" href="https://scholar.google.com/citations?user=NE8rpWsAAAAJ&hl=en&authuser=1" target="_blank" rel="noopener noreferrer">View Google Scholar Profile</a>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Authors</th>
+                <th>Cited By</th>
+                <th>Year</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Speed comparison of 16x16 vedic multipliers</td><td>M Pradhan, R Panda, SK Sahu</td><td>62</td><td>2011</td></tr>
+              <tr><td>FPGA implementation of RSA encryption system</td><td>SK Sahu, M Pradhan</td><td>33</td><td>2011</td></tr>
+              <tr><td>Implementation of Modular multiplication for RSA Algorithm</td><td>SK Sahu, M Pradhan</td><td>18</td><td>2011</td></tr>
+              <tr><td>MAC implementation using vedic multiplication algorithm</td><td>M Pradhan, R Panda, SK Sahu</td><td>18</td><td>2011</td></tr>
+              <tr><td>Multi-modal multi-class Parkinson disease classification using CNN and decision level fusion</td><td>SK Sahu, AS Chowdhury</td><td>14</td><td>2023</td></tr>
+              <tr><td>Design of IoT-based real-time video surveillance system using Raspberry Pi and sensor network</td><td>SK Panda, SK Sahu</td><td>12</td><td>2021</td></tr>
+              <tr><td>Recent trends in eco-sustainable recycling of energy critical elements from low grade and secondary resources</td><td>S Panda, N Devi, S Sahu</td><td>6</td><td>2023</td></tr>
+              <tr><td>AG-PDCnet: An attention guided Parkinson's disease classification network with MRI, DTI and clinical assessment data</td><td>SK Sahu, AS Chowdhury</td><td>2</td><td>2023</td></tr>
+              <tr><td>Real-time speaker identification system using cepstral features</td><td>M Barik, SK Sarangi, SK Sahu</td><td>2</td><td>2016</td></tr>
+              <tr><td>ODEHA-Net: Optimized Deep Ensemble Framework with Hybrid Attention for Emotion Detection</td><td>SK Sahu, R Sahu, J Sethi, C Ghadai</td><td>0</td><td>2025</td></tr>
+              <tr><td>Stage Estimation in Parkinson's Disease from MRI and Clinical Assessment Data with a Multivariate Analysis</td><td>SK Sahu, S Choudhury, M Tiwari, H Kumar, AS Chowdhury</td><td>0</td><td>2024</td></tr>
+              <tr><td>Design of IoT based Real-Time Security System using Raspberry Pi</td><td>M Saroja Kanta Panda</td><td>0</td><td>2020</td></tr>
+              <tr><td>RBC Classification in Blood Smear Image using Neural Network</td><td>SKS Debaraj Rana</td><td>0</td><td>2020</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="margin-top:0.7rem;color:var(--muted);font-size:0.87rem;">Data source: Google Scholar profile shared by user. Snapshot added on April 30, 2026.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    &copy; <span id="year"></span> Prof. Sushanta Kumar Sahu | Odisha University of Technology and Research
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
